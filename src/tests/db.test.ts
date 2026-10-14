@@ -1,15 +1,20 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
 import { insertLead, getLeads, getLeadByTrackingCode, generateTrackingCode } from "@/lib/db";
 import { sanitizeString } from "@/lib/sanitize";
 import { checkRateLimit } from "@/lib/rateLimit";
 
 describe("Database & Persistence Unit Tests", () => {
+  afterEach(() => {
+    vi.unstubAllEnvs();
+  });
+
   it("tracking code TCB- formatında üretilmelidir", () => {
     const code = generateTrackingCode();
     expect(code).toMatch(/^TCB-\d{2}[A-Z0-9]{3}-\d{4}$/);
   });
 
   it("yeni talep başarıyla kaydedilmeli ve okunabilmelidir", async () => {
+    vi.stubEnv("NODE_ENV", "test");
     const newLead = await insertLead({
       name: "Mehmet Demir",
       email: "mehmet@kurum.com",
@@ -34,6 +39,22 @@ describe("Database & Persistence Unit Tests", () => {
     const single = await getLeadByTrackingCode(newLead.tracking_code);
     expect(single).not.toBeNull();
     expect(single?.name).toBe("Mehmet Demir");
+  });
+
+  it("production ortamında DATABASE_URL yoksa insertLead hata fırlatmalı, fallback'e düşmemelidir", async () => {
+    vi.stubEnv("NODE_ENV", "production");
+    vi.stubEnv("DATABASE_URL", "");
+
+    await expect(
+      insertLead({
+        name: "Test User",
+        email: "test@domain.com",
+        package_id: "parola-kasasi",
+        package_name: "Parola ve Sır Kasası",
+        description: "Test description for production error check.",
+        ip_address: "127.0.0.1"
+      })
+    ).rejects.toThrow("Production database configuration missing");
   });
 
   it("HTML etiketlerini sanitize etmelidir", () => {
