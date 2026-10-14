@@ -5,11 +5,11 @@ export const SERVICE_PACKAGES = [
     id: "cihaz-envanteri",
     title: "Cihaz Envanteri ve İzleme",
     badge: "Altyapı & İzleme",
-    desc: "Şirket bilgisayarları, mobil cihazlar ve sunucuların anlık donanım/yazılım sağlık takibi, uzaktan destek ve güvenlik analitiği.",
+    desc: "Şirket bilgisayarları ve kurumsal cihazların donanım/yazılım sağlık takibi, uzaktan destek ve güvenlik analitiği.",
     features: [
-      "Gerçek zamanlı donanım & işletim sistemi takibi",
-      "CPU, RAM, disk ve batarya sağlık raporları",
-      "Kayıp / çalıntı durumunda uzaktan kilitleme ve silme",
+      "Donanım & işletim sistemi takibi (pilotta değerlendirilir)",
+      "CPU, RAM, disk ve sistem sağlık raporları",
+      "Cihaz envanteri ve durum kontrolü",
       "Otomatik donanım envanter defteri"
     ]
   },
@@ -17,48 +17,48 @@ export const SERVICE_PACKAGES = [
     id: "yazilim-dagitimi",
     title: "Yazılım Dağıtımı ve Sürüm Takibi",
     badge: "Otomasyon & Lisans",
-    desc: "Tüm kurumsal cihazlara uzaktan sessiz kurulum, otomatik güvenlik yamaları, lisans optimizasyonu ve yetkisiz yazılım tespiti.",
+    desc: "Hedeflenen cihazlara uzaktan paket kurulumu, güvenlik yamaları, lisans optimizasyonu ve yetkisiz yazılım tespiti.",
     features: [
-      "Tek tıkla toplu yazılım ve yama dağıtımı",
-      "Sıfır kullanıcı müdahalesiyle arka plan güncellemeleri",
-      "Lisans uyumluluğu ve atıl lisans tasarruf analizi",
-      "İzinli ve yasaklı yazılım politikaları uygulama"
+      "Toplu yazılım ve yama dağıtımı konsepti",
+      "Kullanıcı işini aksatmadan planlanan güncellemeler",
+      "Lisans uyumluluğu ve atıl lisans analiz desteği",
+      "İzinli ve kısıtlı yazılım politikaları belirleme"
     ]
   },
   {
     id: "parola-kasasi",
     title: "Parola ve Sır Kasası",
-    badge: "Sıfır Güven (Zero-Trust)",
-    desc: "Kurumsal düzeyde uçtan uca şifreli kimlik bilgileri, API anahtarları, rol tabanlı erişim kontrolü ve şifre rotasyonu.",
+    badge: "Erişim & Kimlik",
+    desc: "Merkezi yönetilen kurumsal kimlik bilgileri, API anahtarları, rol tabanlı erişim kontrolü ve şifre rotasyonu.",
     features: [
-      "AES-256 ve Zero-Knowledge şifreli kurumsal kasa",
-      "Rol ve departman bazlı granular erişim paylaşımı",
-      "Zayıf ve mükerrer parolaların otomatik uyarısı",
+      "Merkezi şifreli kurumsal kasa mimarisi",
+      "Rol ve departman bazlı erişim paylaşımı",
+      "Zayıf ve mükerrer parolaların raporlanması",
       "Kapsamlı erişim ve kullanım denetim kütükleri (Audit Log)"
     ]
   },
   {
     id: "sirket-ici-iletisim",
     title: "Şirket İçi İletişim ve Güvenli Dosya Paylaşımı",
-    badge: "Veri Güvenliği & KVKK",
-    desc: "Dışarıya sızıntı riski olmayan uçtan uca şifreli kurum içi mesajlaşma, süreli dosya paylaşımı ve siber tehdit filtreleme.",
+    badge: "Veri Yönetimi",
+    desc: "Kurum sınırları içinde kalan kontrollü mesajlaşma, süreli dosya paylaşımı ve siber tehdit filtreleme.",
     features: [
-      "Şirket sınırları içinde kalan şifreli anlık mesajlaşma",
+      "Şirket sınırları içinde kalan anlık mesajlaşma ortamı",
       "Süreli, parolalı ve indirme limitli dosya paylaşımı",
-      "DLP (Veri Sızıntısı Önleme) ve zararlı ek taraması",
-      "KVKK ve kurumsal regülasyonlara %100 uyumluluk"
+      "Yetkilendirilmiş dosya aktarımı ve ek kontrolü",
+      "Kurumsal regülasyonlara uyumlu süreç yönetimi"
     ]
   },
   {
     id: "tek-cati-hepsi",
     title: "Tüm Paketler (Tek Çatı Entegre)",
-    badge: "En Popüler / Tam Çözüm",
-    desc: "4 hizmetin tamamının tek bir panelden, entegre ajan ve merkezi yönetim konsoluyla çalıştırıldığı eksiksiz kurumsal paket.",
+    badge: "En Kapsamlı Çözüm",
+    desc: "4 hizmetin tamamının tek bir çatı altında birleştirilmesini hedefleyen entegre kurumsal paket konsepti.",
     features: [
-      "Tek ajan, tek yönetim konsolu, sıfır entegrasyon yükü",
-      "Öncelikli 7/24 SLA ve atanmış BT Güvenlik Uzmanı",
-      "Mevcut araçlardan (Slack, Bitwarden vb.) 1 günde geçiş",
-      "%40'a varan konsolidasyon ve lisans tasarrufu"
+      "Tek ajan ve tek yönetim konsolu hedefi",
+      "Öncelikli SLA ve teknik danışmanlık desteği",
+      "Mevcut araçlardan planlı geçiş desteği",
+      "Konsolidasyon ile maliyet ve lisans optimizasyonu"
     ]
   }
 ] as const;
@@ -92,7 +92,6 @@ export const leadSchema = z.object({
     .email({ message: "Lütfen geçerli bir e-posta adresi giriniz." })
     .refine(
       (val) => {
-        // Kurumsal e-posta tavsiyesi kontrolü veya standart geçerlilik
         const domain = val.split("@")[1]?.toLowerCase();
         return domain && domain.includes(".");
       },

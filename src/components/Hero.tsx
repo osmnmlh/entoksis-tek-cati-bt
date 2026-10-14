@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 export default function Hero() {
   return (
     <section className="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden bg-grid-pattern">
@@ -13,23 +11,23 @@ export default function Hero() {
         {/* Eyebrow badge */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800/80 border border-slate-700 text-xs font-semibold text-cyan-400 mb-6 shadow-sm">
           <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
-          <span>Kurumsal BT Konsolidasyonu & Sıfır Güvenlik Açığı</span>
+          <span>Kurumsal BT Konsolidasyonu • Hizmet Modeli Konsepti</span>
         </div>
 
         {/* Main Heading (H1) */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-tight sm:leading-tight">
-          Şirketinizin Tüm BT Operasyonları{" "}
+          Şirketinizin BT Operasyonları İçin{" "}
           <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent">
-            Tek Çatı Altında.
+            Tek Çatı Yönetim Modeli.
           </span>
         </h1>
 
         {/* Problem and Value Proposition Subtitle */}
         <p className="mt-6 text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-          Cihaz takibi, yazılım dağıtımı, parola kasası ve kurum içi iletişimi 4 farklı
-          araca dağıtıp hem güvenlik zafiyeti hem de bütçe israfı yaşamayın.{" "}
-          <strong className="text-white font-semibold">Tek Çatı BT</strong>, tüm bu ihtiyaçları tek bir
-          akredite yönetim çatısında toplar.
+          Cihaz takibi, yazılım dağıtımı, parola kasası ve kurum içi iletişimi farklı
+          araçlara dağıtarak operasyonel karmaşa yaşamayın.{" "}
+          <strong className="text-white font-semibold">Tek Çatı BT</strong>, bu temel
+          ihtiyaçları merkezi bir yönetim çatısı altında birleştirmeyi hedefler.
         </p>
 
         {/* CTA Buttons */}
@@ -38,7 +36,7 @@ export default function Hero() {
             href="#talep-formu"
             className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-white bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 hover:from-cyan-400 hover:to-blue-500 shadow-xl shadow-cyan-500/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0 text-center"
           >
-            14 Günlük Ücretsiz Pilotu Başlat
+            Örnek Pilot Talep Formu
           </a>
           <a
             href="#hizmet-paketleri"
@@ -48,7 +46,7 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* 4 Trust Badges */}
+        {/* 4 Softened Badges (Framed as conceptual pilot targets) */}
         <div className="mt-14 pt-10 border-t border-slate-800/80 grid grid-cols-2 md:grid-cols-4 gap-4 text-left">
           <div className="p-4 rounded-xl bg-slate-900/50 border border-slate-800/80 flex items-center gap-3">
             <div className="p-2 rounded-lg bg-cyan-950 text-cyan-400 shrink-0">
@@ -57,8 +55,8 @@ export default function Hero() {
               </svg>
             </div>
             <div>
-              <p className="text-xs text-slate-400">Taahhütsüz</p>
-              <p className="text-sm font-semibold text-slate-200">14 Gün Ücretsiz Pilot</p>
+              <p className="text-xs text-slate-400">Kurgusal Kapsam</p>
+              <p className="text-sm font-semibold text-slate-200">14 Günlük Örnek Pilot</p>
             </div>
           </div>
 
@@ -69,8 +67,8 @@ export default function Hero() {
               </svg>
             </div>
             <div>
-              <p className="text-xs text-slate-400">Geniş Kapsam</p>
-              <p className="text-sm font-semibold text-slate-200">50 Cihaza Kadar Ücretsiz</p>
+              <p className="text-xs text-slate-400">Hedeflenen Kapsam</p>
+              <p className="text-sm font-semibold text-slate-200">50 Cihaza Kadar Örnek Filo</p>
             </div>
           </div>
 
@@ -81,8 +79,8 @@ export default function Hero() {
               </svg>
             </div>
             <div>
-              <p className="text-xs text-slate-400">Sıfır Kesinti</p>
-              <p className="text-sm font-semibold text-slate-200">1 Günde Canlıya Alma</p>
+              <p className="text-xs text-slate-400">Hızlı Başlangıç</p>
+              <p className="text-sm font-semibold text-slate-200">Planlı Devreye Alma Hedefi</p>
             </div>
           </div>
 
@@ -93,8 +91,8 @@ export default function Hero() {
               </svg>
             </div>
             <div>
-              <p className="text-xs text-slate-400">Yasal Güvence</p>
-              <p className="text-sm font-semibold text-slate-200">KVKK & ISO 27001 Uyumlu</p>
+              <p className="text-xs text-slate-400">Süreç Yönetimi</p>
+              <p className="text-sm font-semibold text-slate-200">Kurumsal Standartlara Uyum Hedefi</p>
             </div>
           </div>
         </div>

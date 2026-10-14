@@ -7,24 +7,24 @@ export default function FAQ() {
 
   const faqs = [
     {
-      q: "Pilot süresi gerçekten ücretsiz ve taahhütsüz mü?",
-      a: "Evet, kesinlikle. 14 gün boyunca 50 cihaza kadar hiçbir ücret veya kredi kartı bilgisi talep edilmez. Pilot süresi sonunda devam etmek zorunda değilsiniz; dilediğiniz an tüm verilerinizi dışa aktarabilirsiniz."
+      q: "Örnek pilot süreci nasıl işler?",
+      a: "Bu kurgusal senaryoda pilot süresi 14 gün ve 50 cihaza kadar hedeflenen kapsam olarak planlanmıştır. Amaç, şirketlerin çoklu araç karmaşasını tek çatı altında toplama ihtiyacını değerlendirmektir."
     },
     {
-      q: "Şirketimizdeki mevcut araçlardan (Slack, Bitwarden vb.) geçiş nasıl sağlanır?",
-      a: "Tek Çatı BT veri göçü asistanımız sayesinde tüm parolalarınız, kanal arşivleriniz ve kullanıcı yetkileriniz tek tıkla yeni ortama aktarılır. Bu süreçte hiçbir operasyon durmaz."
+      q: "Mevcut araçlardan geçiş süreci nasıl planlanır?",
+      a: "Veri aktarımı ve kullanıcı listelerinin entegrasyonu pilot aşamasında teknik gereksinimlere göre adım adım planlanır; öncelikli hedef iş akışının kesintiye uğramamasıdır."
     },
     {
-      q: "Ajan kurulumu çalışan bilgisayarlarını yavaşlatır mı?",
-      a: "Hayır. Geliştirdiğimiz hafif ajan (Native Agent) sistem kaynağının %0.5'inden az CPU ve ortalama 35MB RAM tüketir. Kullanıcıların günlük çalışmasını kesinlikle etkilemez."
+      q: "Ajan mimarisi cihaz performansını nasıl etkiler?",
+      a: "Hedeflenen hafif ajan konseptinin arka planda minimum sistem kaynağı ile çalışması, kullanıcıların günlük işlerini etkilememesi hedeflenir."
     },
     {
-      q: "Veri güvenliği ve KVKK uyumluluğu nasıl garanti ediliyor?",
-      a: "Tüm veriler dinlenme ve iletim anında (At-Rest and In-Transit) AES-256 ve TLS 1.3 ile şifrelenir. Veri tabanımız ve sunucularımız Türkiye Cumhuriyeti KVKK mevzuatına ve ISO 27001 standartlarına tam uyumludur."
+      q: "Veri güvenliği ve gizlilik nasıl ele alınıyor?",
+      a: "Form üzerinden toplanan talep verileri sunucu tarafında doğrulanır, şifrelenmiş TLS bağlantıları üzerinden aktarılır ve sunucuda güvenli şekilde saklanır."
     },
     {
-      q: "50'den fazla cihazımız varsa pilot yapabilir miyiz?",
-      a: "Elbette. 50'den fazla cihazı olan kurumsal şirketler için talebiniz incelendikten sonra genişletilmiş özel pilot ortamı tahsis edilebilmektedir."
+      q: "Bu projenin gerçek dünyadaki kapsamı nedir?",
+      a: "Bu bir değerlendirme projesi için kurgulanmış hizmet modelidir. Hizmet paketleri konsepttir; bu repoda yalnızca talep toplama ve veri kalıcılığı mimarisi uygulanmıştır."
     }
   ];
 
@@ -39,7 +39,7 @@ export default function FAQ() {
             Sıkça Sorulan Sorular
           </h2>
           <p className="mt-3 text-base text-slate-300">
-            Geçiş süreci, pilot koşulları ve teknik detaylar hakkında bilmek istedikleriniz.
+            Kurgusal pilot modeli, geçiş hedefleri ve teknik detaylar hakkında bilgiler.
           </p>
         </div>
 

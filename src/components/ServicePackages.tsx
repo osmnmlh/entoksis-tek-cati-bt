@@ -23,14 +23,14 @@ export default function ServicePackages({ onSelectPackage }: ServicePackagesProp
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-semibold tracking-wider uppercase text-cyan-400 bg-cyan-950/70 px-3 py-1 rounded-full border border-cyan-800/60">
-            Modüler & Entegre
+            Modüler & Entegre Konsept
           </span>
           <h2 className="mt-4 text-3xl sm:text-4xl font-bold text-white tracking-tight">
             4 Temel Hizmet Paketi
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-300">
-            İhtiyacınıza göre tek bir paketi seçebilir veya tüm operasyonunuzu tek çatı
-            altında birleştiren entegre çözümü tercih edebilirsiniz.
+            İhtiyacınıza göre tek bir paketi seçebilir veya tüm operasyonu tek çatı
+            altında birleştirmeyi amaçlayan entegre modeli tercih edebilirsiniz.
           </p>
         </div>
 
@@ -46,7 +46,7 @@ export default function ServicePackages({ onSelectPackage }: ServicePackagesProp
                   <span className="text-xs font-semibold px-3 py-1 rounded-full bg-slate-800 text-cyan-300 border border-slate-700">
                     Paket 0{idx + 1} • {pkg.badge}
                   </span>
-                  <span className="text-xs text-slate-400">14 Gün Ücretsiz Pilot</span>
+                  <span className="text-xs text-slate-400">Örnek Pilot Kapsamı</span>
                 </div>
 
                 <h3 className="text-2xl font-bold text-white group-hover:text-cyan-300 transition-colors">
@@ -58,7 +58,7 @@ export default function ServicePackages({ onSelectPackage }: ServicePackagesProp
 
                 <div className="mt-6 pt-6 border-t border-slate-800">
                   <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">
-                    Öne Çıkan Özellikler:
+                    Hedeflenen Özellikler:
                   </h4>
                   <ul className="space-y-2.5 text-sm text-slate-300">
                     {pkg.features.map((feat, fIdx) => (
@@ -104,20 +104,19 @@ export default function ServicePackages({ onSelectPackage }: ServicePackagesProp
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="max-w-2xl">
               <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-cyan-500 text-slate-950 inline-block mb-3">
-                ⭐ En Popüler Çözüm
+                ⭐ En Kapsamlı Paket Konsepti
               </span>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
-                Tüm Paketler: Tek Çatı Entegre BT Yönetimi
+                Tüm Paketler: Tek Çatı Entegre BT Modeli
               </h3>
               <p className="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed">
-                4 paketin tamamı tek bir hafif ajan ve merkezi yönetim konsolunda birleşir.
-                Öncelikli 7/24 SLA desteği, atanmış BT Güvenlik Uzmanı ve mevcut araçlarınızdan
-                tek tıkla veri göçü dahildir.
+                4 paketin tamamının tek bir ajan ve merkezi konsolda birleştirilmesi hedeflenir.
+                Pilot sürecinde teknik danışmanlık desteği ve örnek veri aktarım planlaması değerlendirilir.
               </p>
               <div className="mt-4 flex flex-wrap gap-4 text-xs text-cyan-300 font-medium">
-                <span>✓ %40 Toplam Lisans Tasarrufu</span>
-                <span>✓ 50 Cihaza Kadar 14 Gün Ücretsiz</span>
-                <span>✓ 1 Günde Sıfır Kesintiyle Canlıya Alma</span>
+                <span>✓ Lisans ve Araç Konsolidasyonu Hedefi</span>
+                <span>✓ 50 Cihaza Kadar Örnek İnceleme</span>
+                <span>✓ Planlı Devreye Alma Süreci</span>
               </div>
             </div>
 
@@ -127,7 +126,7 @@ export default function ServicePackages({ onSelectPackage }: ServicePackagesProp
                 onClick={() => handleSelect("tek-cati-hepsi")}
                 className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 shadow-xl shadow-cyan-500/30 transition-all text-center"
               >
-                Tüm Paketler İçin Pilot Başlat
+                Tüm Paketler İçin Pilot Talep Et
               </button>
             </div>
           </div>

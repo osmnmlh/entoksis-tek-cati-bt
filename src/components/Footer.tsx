@@ -4,6 +4,12 @@ export default function Footer() {
   return (
     <footer className="bg-slate-950 border-t border-slate-800 text-slate-400 text-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        {/* Conceptual evaluation notice */}
+        <div className="mb-10 p-4 rounded-xl bg-slate-900/60 border border-slate-800 text-xs text-slate-400 text-center">
+          <strong className="text-slate-300">Önemli Not:</strong> Bu bir değerlendirme projesi için kurgulanmış hizmettir.
+          Hizmet paketleri konsepttir; bu repoda yalnızca talep toplama ve veri kalıcılığı sistemi uygulanmıştır.
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Col */}
           <div className="md:col-span-2">
@@ -21,18 +27,18 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-slate-400 max-w-md text-xs sm:text-sm leading-relaxed mb-4">
-              Cihaz envanteri, yazılım dağıtımı, parola kasası ve kurum içi güvenli
-              dosya paylaşımını tek merkezde toplayan akredite BT yönetim platformu.
+              Cihaz envanteri, yazılım dağıtımı, parola kasası ve kurum içi iletişimi
+              tek merkezde birleştirmeyi hedefleyen kurumsal BT yönetim konsepti.
             </p>
             <div className="flex items-center gap-3 text-xs text-slate-500">
               <span className="inline-flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-                Sistemler Aktif & Güvenli
+                Sistemler Aktif
               </span>
               <span>•</span>
-              <span>TLS 1.3 / AES-256</span>
+              <span>TLS Şifreleme</span>
               <span>•</span>
-              <span>KVKK Uyumlu</span>
+              <span>Vaka Analizi Projesi</span>
             </div>
           </div>
 
@@ -81,14 +87,14 @@ export default function Footer() {
                   href="/admin"
                   className="inline-flex items-center gap-1.5 text-cyan-400 hover:text-cyan-300 font-semibold"
                 >
-                  <span>→ Admin / Canlı Kayıtlar</span>
+                  <span>→ Admin / Doğrulama Ekranı</span>
                 </Link>
               </li>
               <li className="text-xs text-slate-500 pt-2">
                 Tech Stack: Next.js 16 + Neon PostgreSQL + Zod + Vitest
               </li>
               <li className="text-xs text-slate-500">
-                Deploy: Vercel Serverless Production
+                Deploy: Vercel Serverless
               </li>
             </ul>
           </div>
