@@ -1,22 +1,23 @@
 # Tek Çatı BT – Kurumsal Cihaz, Yazılım ve İletişim Yönetimi Hizmeti
 
+**Canlı Demo:** `<CANLI_URL_BURAYA>`
+
 [![CI](https://github.com/osmnmlh/entoksis-tek-cati-bt/actions/workflows/ci.yml/badge.svg)](https://github.com/osmnmlh/entoksis-tek-cati-bt/actions)
 [![Next.js](https://img.shields.io/badge/Next.js-16_App_Router-black?logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?logo=typescript)](https://www.typescriptlang.org/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Neon_Serverless-00e599?logo=postgresql)](https://neon.tech/)
 [![Zod](https://img.shields.io/badge/Validation-Zod_Dual_Layer-3068b7)](https://zod.dev/)
-[![Vitest](https://img.shields.io/badge/Tests-13%2F13_Passed-green?logo=vitest)](https://vitest.dev/)
+[![Vitest](https://img.shields.io/badge/Tests-31%2F31_Passed-green?logo=vitest)](https://vitest.dev/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-> **Entoksis Case Study Proje Teslimi**  
-> Bu proje, şirketlerin cihaz envanteri, yazılım dağıtımı, parola kasası ve güvenli iç iletişim operasyonlarını tek çatı altında birleştiren, Vercel & Neon Serverless PostgreSQL üzerinde kalıcı kayıt üreten kurumsal bir hizmet landing page'idir.
+> **Önemli Not:** Bu bir değerlendirme projesi için kurgulanmış hizmettir. Hizmet paketleri konsepttir; bu repoda yalnızca talep toplama ve veri kalıcılığı sistemi uygulanmıştır.
 
 ---
 
 ## 📸 Görsel Önizleme & UI Akışı
 
 ### 1. Masaüstü Landing Page & 4 Hizmet Paketi
-Ziyaretçiyi karşılayan değer önerisi, güven rozetleri ve modüler 4 hizmet paketi:
+Ziyaretçiyi karşılayan değer önerisi ve modüler 4 hizmet paketi konsepti:
 ![Tek Çatı BT Masaüstü Görünüm](./docs/images/hero-preview.png)
 
 ---
@@ -33,14 +34,14 @@ Başarı mesajı **yalnızca** sunucuda ve veritabanında fiziksel `INSERT` işl
 
 ---
 
-### 4. Değerlendirici / Admin Canlı Denetim Ekranı (`/admin`)
-Değerlendiricinin formdan girdiği test kaydını veritabanında anlık olarak doğrulaması için geliştirilen canlı denetim paneli:
+### 4. Doğrulama / Admin Canlı Denetim Ekranı (`/admin`)
+Değerlendiricinin formdan girdiği test kaydını veritabanında anlık olarak doğrulaması için geliştirilen salt-okunur ve PII maskeli denetim paneli:
 ![Admin Canlı Kayıt Kontrolü](./docs/images/admin-audit.png)
 
 ---
 
 ### 5. Mobil Uyumluluk (390px Görünümü)
-Tüm butonlar, kartlar, navigasyon ve formlar mobilde rahat ve erişilebilir (touch-friendly) bir deneyim sunar:
+Tüm butonlar, kartlar, navigasyon ve formlar mobilde rahat bir kullanım sunar:
 <p align="center">
   <img src="./docs/images/mobile-view.png" alt="Mobil Görünüm" width="360" />
 </p>
@@ -50,69 +51,99 @@ Tüm butonlar, kartlar, navigasyon ve formlar mobilde rahat ve erişilebilir (to
 ## 📌 1. Proje Özeti: Kime Yardımcı Oluyor, Hangi Sorunu Çözüyor?
 
 ### Problem (Sorun):
-Büyüyen şirketlerde her departman farklı ihtiyaçlar için ayrı bir yazılım kullanır:
+Büyüyen şirketlerde her departman farklı ihtiyaçlar için ayrı bir yazılım seçer:
 - Cihaz ve donanım takibi için dağınık Excel tabloları,
-- Uzaktan yazılım/yama yüklemek için üçüncü taraf güvensiz programlar,
-- Kurumsal şifreler için bireysel veya kontrolsüz parola kasaları,
+- Uzaktan yazılım/yama yüklemek için üçüncü taraf programlar,
+- Kurumsal şifreler için kontrolsüz parola kasaları,
 - Şirket içi yazışma ve dosya paylaşımı için tüketici mesajlaşma uygulamaları.
 
-Bu durum **araç enflasyonuna**, yüksek döviz lisans faturalarına (%40'a varan bütçe israfı), işten ayrılan personelin erişimlerinin açık kalmasına ve ciddi **KVKK / ISO 27001 güvenlik zafiyetlerine** yol açar.
+Bu durum **araç enflasyonuna**, artan lisans maliyetlerine, işten ayrılan personelin erişimlerinin kontrolsüz kalabilmesine ve operasyonel karmaşaya yol açar.
 
 ### Çözüm (Değer Önerisi):
-**Tek Çatı BT**, bu 4 kritik operasyonu tek bir hafif yerel ajan (Native Agent) ve merkezi yönetim konsolunda birleştirir. Şirketler tek bir çatı altında tüm donanımlarını izler, tek tıkla yazılım dağıtır, sıfır-bilgi (Zero-Knowledge) şifreli kasayla parolalarını yönetir ve sızıntısız kurum içi iletişim sağlar.
+**Tek Çatı BT**, bu 4 temel operasyonu tek bir çatı altında birleştirmeyi hedefleyen kurumsal bir hizmet modelidir. Şirketlerin donanımlarını merkezi olarak izlemesini, yazılım dağıtımı yapmasını, kurumsal şifreleri tek merkezden yönetmesini ve güvenli kurum içi iletişim kurmasını amaçlar.
 
 ---
 
-## 📦 2. Dört Hizmet Paketi ve Pilot Kapsamı
+## 📦 2. Dört Hizmet Paketi ve Örnek Pilot Kapsamı
 
 ### 4 Temel Hizmet Paketi:
-1. **Cihaz Envanteri ve İzleme:** Şirket bilgisayarları (Windows, macOS, Linux) ve mobil cihazların anlık donanım sağlığı, CPU/RAM/Disk raporları ve kayıp durumunda uzaktan kilitleme.
-2. **Yazılım Dağıtımı ve Sürüm Takibi:** Tek tıkla toplu program kurulumu, arka plan güvenlik güncellemeleri, atıl lisans analizi ve yetkisiz yazılım engelleme.
-3. **Parola ve Sır Kasası:** AES-256 ve Zero-Knowledge şifreli kurumsal kasa, rol tabanlı granular erişim yetkilendirmesi, sızıntı uyarıları ve denetim kütükleri (audit logs).
-4. **Şirket İçi İletişim ve Güvenli Dosya Paylaşımı:** Kurum sınırları içinde kalan uçtan uca şifreli mesajlaşma, süreli/parolalı dosya aktarımı, DLP koruması ve KVKK uyumluluğu.
-5. *(Entegre)* **Tüm Paketler (Tek Çatı Entegre):** 4 hizmetin tamamının tek ajan ve tek yönetim konsoluyla sunulduğu, öncelikli 7/24 SLA içeren tam kurumsal çözüm.
+1. **Cihaz Envanteri ve İzleme:** Şirket bilgisayarları ve kurumsal cihazların donanım/yazılım sağlık takibi, sistem raporları ve durum kontrolü (pilotta değerlendirilir).
+2. **Yazılım Dağıtımı ve Sürüm Takibi:** Hedeflenen cihazlara uzaktan paket kurulumu, güvenlik yamaları, lisans optimizasyonu ve yetkisiz yazılım tespiti.
+3. **Parola ve Sır Kasası:** Merkezi yönetilen kurumsal kimlik bilgileri, API anahtarları, rol tabanlı erişim kontrolü ve denetim logları.
+4. **Şirket İçi İletişim ve Güvenli Dosya Paylaşımı:** Kurum sınırları içinde kalan kontrollü mesajlaşma, süreli ve kısıtlı dosya paylaşımı.
+5. *(Entegre Model)* **Tüm Paketler (Tek Çatı Entegre):** 4 hizmetin tamamının tek bir çatı altında birleştirilmesini hedefleyen kurumsal paket konsepti.
 
-### Pilot Kapsamı:
-- **14 Gün Tamamen Ücretsiz & Taahhütsüz:** Kredi kartı veya bağlayıcı sözleşme gerekmez.
-- **50 Cihaza Kadar Destek:** Windows, Mac, Linux ve mobil tüm kurumsal filoyu kapsar.
-- **1 Günde Devreye Alma:** Sıfır iş kesintisiyle hızlı ajan kurulumu.
-- **Kayıpsız Veri Göçü:** Mevcut araçlardan (Slack, Bitwarden, Excel vb.) tek tıkla güvenli aktarım.
-- **Atanmış BT Güvenlik Danışmanı:** Pilot boyunca 1-e-1 uzman desteği.
+### Örnek Pilot Kapsamı (Kurgusal):
+- **14 Günlük Örnek Pilot Süreci:** Bağlayıcı taahhüt içermeyen kurgusal deneme süreci.
+- **Hedeflenen 50 Cihaz Kapsamı:** Test amaçlı hedeflenen cihaz filosu.
+- **Planlı Devreye Alma Süreci:** İş kesintisini en aza indirmeyi hedefleyen geçiş modeli.
+- **Teknik Danışmanlık Desteği:** Pilot sürecinde ihtiyaçların analiz edilmesi.
 
 ---
 
-## 🏗️ 3. Mimari ve Veri Akışı
+## 🧠 3. Yazılı Problem Çözme ve Mimari Kararlar
+
+### Problem Analizi ve Çözüm Yaklaşımı
+Case study'nin ana odağı, şirketlerin dağınık araçlarla yönettiği BT operasyonlarını tek bir merkezde toplayan bir değer önerisi sunmak ve ziyaretçinin bu hizmete yönelik talebini sunucuda kalıcı bir kayda dönüştürmektir. Kullanıcı güvenini tesis etmek adına form doğrulamasının iki katmanda (istemci ve sunucu) yapılması ve başarı geri bildiriminin yalnızca veritabanına fiziksel yazım gerçekleştiğinde verilmesi kararlaştırılmıştır.
+
+### Neden Next.js (App Router) + Neon PostgreSQL?
+- **Tek Yığın (Unified Stack):** Frontend (React 19) ile Backend API rotalarının (`/api/leads`) aynı çatı altında tip güvenliğiyle (TypeScript + Zod) yönetilmesi sağlandı.
+- **Vercel Serverless & Kalıcılık:** Vercel sunucusuz mimarisi her istekte geçici (ephemeral) container'lar çalıştırır. Dosya tabanlı veritabanları (SQLite gibi) sunucusuz ortamlarda kalıcı olamaz; container kapandığında dosya silinir. Bu nedenle doğrudan Vercel ortamıyla tam uyumlu çalışan, bağlantı havuzlama (connection pooling) destekli **Neon Serverless PostgreSQL** tercih edildi.
+
+### Bilerek Yapılmayanlar (Kapsam Sınırları ve Sadeliğin Korunması):
+Overengineering'den kaçınmak ve teslim gereksinimlerine odaklanmak amacıyla şu bileşenler bilinçli olarak eklenmemiştir:
+- **Kullanıcı Girişi / Auth (JWT/NextAuth):** Case study bir landing page ve talep toplama sürecidir; son kullanıcı veya aday için şifreli üyelik bariyeri eklenmemiştir.
+- **SMTP E-posta Gönderimi:** Üçüncü taraf harici API bağımlılıkları (SendGrid/Resend) değerlendiricinin yerel çalıştırmasını zorlaştıracağı için e-posta gönderimi yerine gerçek zamanlı takip kodu üretimi tercih edilmiştir.
+- **Ağır UI / Animasyon Kütüphaneleri:** Framer Motion gibi 100KB+ runtime maliyeti olan kütüphaneler yerine saf Tailwind CSS geçişleri ve native SVG spinner kullanılmıştır.
+- **Çoklu Veritabanı Tabloları:** Bu aşamada ilişkisel karmaşa yaratmamak için tek ve optimize edilmiş `leads` tablosu yeterli görülmüştür.
+
+### Fallback Kararı ve Production'da Kapatılma Gerekçesi
+- Yerel geliştirme ortamında ve otomatik testlerde (`process.env.NODE_ENV !== 'production'`), değerlendiricinin harici bir PostgreSQL URL'i girmesine gerek kalmadan tek komutla test yapabilmesi için in-memory fallback mekanizması sağlanmıştır.
+- Ancak **production (`NODE_ENV === 'production'`) ortamında fallback kesin olarak kapatılmıştır**. Canlı ortamda `DATABASE_URL` eksikse veya veritabanı sorgusu başarısız olursa sistem asla sessizce belleğe yazıp kullanıcıya sahte başarı dönmez; doğrudan 500 fırlatarak veri kalıcılığı ilkesini garanti altına alır.
+
+---
+
+## 🏗️ 4. Veri Akışı Şeması
 
 ```mermaid
 sequenceDiagram
     autonumber
     actor User as Ziyaretçi / Değerlendirici
     participant UI as Next.js Client (LeadForm)
-    participant Sec as Güvenlik Katmanı (RateLimit & Sanitizer)
+    participant Sec as Güvenlik Katmanı (RateLimit & Honeypot)
     participant API as Server API (/api/leads)
-    participant DB as Neon PostgreSQL
+    participant DB as Neon PostgreSQL (Vercel)
 
     User->>UI: Formu doldurur (Ad, E-posta, Paket, Açıklama)
     UI->>UI: Zod İstemci Doğrulaması
-    alt Validasyon Hatası
-        UI-->>User: Kırmızı hata uyarısı + odaklanma
+    alt İstemci Validasyon Hatası
+        UI-->>User: İlgili alan altında kırmızı hata uyarısı + odaklanma
     else Validasyon Başarılı
         UI->>UI: Buton kilitlenir, Spinner "Kaydediliyor..." durumuna geçer
         UI->>Sec: POST /api/leads
-        Sec->>Sec: Honeypot & IP Rate Limit kontrolü (Max 5/dk)
-        Sec->>API: Temizlenmiş veri aktarımı
-        API->>API: Sunucu Zod Şema Doğrulaması
-        API->>DB: INSERT INTO leads (...) RETURNING tracking_code
-        DB-->>API: 201 Created (ID: TCB-XXXX)
-        API-->>UI: { success: true, trackingCode: "TCB-XXXX" }
-        UI->>UI: Form sıfırlanır, Yeşil Başarı Kartı açılır
-        UI-->>User: "Talebiniz Kaydedildi! Takip No: TCB-XXXX"
+        Sec->>Sec: Honeypot (website_url) ve Rate Limit kontrolü (Max 20/dk)
+        alt Honeypot Dolu
+            Sec-->>UI: 400 Bad Request ("Geçersiz istek tespit edildi.")
+        else İstek Geçerli
+            Sec->>API: Temizlenmiş (sanitized) girdi
+            API->>API: Sunucu Zod Şema Doğrulaması
+            API->>DB: INSERT INTO leads (...) RETURNING tracking_code
+            alt DB Hatası (Production)
+                DB-->>API: Bağlantı / Sorgu Hatası
+                API-->>UI: 500 Internal Server Error (Genel hata mesajı)
+                UI-->>User: Kırmızı hata banner'ı (Veriler korunur)
+            else Kayıt Başarılı
+                DB-->>API: 201 Created (ID, TCB-XXXXX)
+                API-->>UI: { success: true, trackingCode: "TCB-XXXXX" }
+                UI-->>User: Form sıfırlanır, Yeşil Başarı Kartı açılır
+            end
+        end
     end
 ```
 
 ---
 
-## ⚙️ 4. Kurulum ve Çalıştırma Adımları
+## ⚙️ 5. Kurulum ve Çalıştırma Adımları
 
 ### Gereksinimler:
 - Node.js (v18.18+ veya v20/v22)
@@ -134,15 +165,14 @@ Proje kök dizinindeki `.env.example` dosyasını `.env.local` olarak kopyalayab
 ```bash
 cp .env.example .env.local
 ```
-> **Önemli Not (Sıfır Konfigürasyonla Çalışma Garantisi):**  
-> `DATABASE_URL` tanımlanmadığında dahi proje **asla hata vermez veya çökmez**. Yerel geliştirme ve değerlendirici testleri için yerleşik resilient fallback hafıza adaptörü otomatik devreye girer. Neon bağlantı dizesi girildiğinde ise otomatik olarak bulut PostgreSQL veritabanına bağlanır ve tabloları otomatik oluşturur.
+> **Çalışma Notu:** `NODE_ENV !== 'production'` (dev ve test) iken `DATABASE_URL` tanımlanmadığında testlerin aksamaması için yerel bellek adaptörü devreye girer. `DATABASE_URL` tanımlandığında ise otomatik olarak bulut PostgreSQL veritabanına bağlanır ve tabloları otomatik oluşturur.
 
 ### 4. Geliştirme Sunucusunu Başlatın:
 ```bash
 npm run dev
 ```
 - **Ana Sayfa:** `http://localhost:3000`  
-- **Admin / Canlı Kayıtlar Paneli:** `http://localhost:3000/admin`
+- **Admin / Canlı Doğrulama Paneli:** `http://localhost:3000/admin`
 
 ### 5. Üretim Derlemesi (Production Build):
 ```bash
@@ -152,71 +182,68 @@ npm run start
 
 ---
 
-## 🧪 5. Otomatik Testleri Çalıştırma
+## 🧪 6. Otomatik Testleri Çalıştırma
 
 Tüm birim ve entegrasyon testleri Vitest ile yazılmıştır:
 ```bash
 npm test
 ```
-**Test Kapsamı (13 Test, 100% Başarılı):**
-- `src/tests/validation.test.ts`:
-  - Eksik/kısa ad-soyad reddi
-  - XSS veya geçersiz karakter içeren adların reddi
-  - Geçersiz ve geçerli kurumsal e-posta formatlarının doğrulanması
-  - 4 tanımlı paket dışındaki değerlerin reddi
-  - 10 karakterden kısa açıklamaların reddi
-  - Honeypot spam botu girişlerinin tespiti
-- `src/tests/db.test.ts`:
-  - `TCB-` formatlı benzersiz takip kodu üretimi
-  - Kalıcı kayıt oluşturma ve geri okuma entegrasyonu
+**Test Kapsamı (31 Test, 100% Başarılı):**
+- `src/tests/mask.test.ts` (13 test):
+  - E-posta maskeleme (`ke***@domain.com.tr`)
+  - IPv4 son iki oktet ve IPv6 ilk bölüm dışı maskeleme
+  - İsim formatı maskeleme (`Kemal Ö.`)
+  - Açıklama 40 karakter + `…` sınırlama testi
+  - Tam `LeadRecord` nesnesi maskeleme testi
+- `src/tests/api.test.ts` (4 test):
+  - Honeypot (`website_url`) dolu geldiğinde 400 Bad Request dönmesi ve DB'ye yazılmaması
+  - Production modunda (`NODE_ENV=production`) DATABASE_URL yokken veya geçersizken 500 dönmesi, asla 201 ve takip kodu dönmemesi
+  - `GET /api/leads` endpoint'inin dönen verilerde sunucu tarafında maskeleme uygulaması
+- `src/tests/db.test.ts` (5 test):
+  - `TCB-` formatlı takip kodu üretimi
+  - Kayıt ekleme ve okuma döngüsü
+  - Production ortamında DATABASE_URL yoksa `insertLead` fonksiyonunun hata fırlatması
   - XSS girdi temizleme (sanitization)
-  - IP bazlı Rate Limiter sınır testi
+  - Rate limiter sınır kontrolü
+- `src/tests/validation.test.ts` (9 test):
+  - Zod şema kuralları (kısa isim, geçersiz karakter, geçersiz e-posta, tanımsız paket, kısa açıklama reddi)
 
 ---
 
-## 🚀 6. Vercel Dağıtımı (Deployment)
+## 🛡️ 7. Temel Güvenlik ve Gizlilik Önlemleri
 
-Proje Vercel ortamına tam uyumlu olacak şekilde hazırlanmıştır:
-1. Projeyi GitHub reponuza push edin.
-2. Vercel dashboard üzerinden **Add New Project** seçip bu repoyu içe aktarın.
-3. Environment Variables kısmına Neon Console'dan aldığınız bağlantı dizesini ekleyin:
-   ```
-   DATABASE_URL=postgresql://neondb_owner:***@ep-***.neon.tech/neondb?sslmode=require
-   ```
-4. **Deploy** butonuna basın. Vercel Edge/Serverless üzerinde `leads` tablosu ilk talepte otomatik oluşturulur (`CREATE TABLE IF NOT EXISTS`).
-
----
-
-## 🛡️ 7. Temel Güvenlik Önlemleri
-
-1. **Çift Taraflı Doğrulama:** İstemcide anlık geri bildirim için Zod; sunucuda manipülasyonu engellemek için tekrar sunucu Zod parse kontrolü.
-2. **Kalıcı Kayıt Güvencesi:** Başarı ekranı ve takip numarası **yalnızca** sunucu HTTP `201 Created` döndüğünde gösterilir; sunucu hatasında form verileri kaybolmaz, kullanıcıya hata sebebi açıkça bildirilir.
-3. **Honeypot Koruması:** Formda kullanıcıya görünmeyen sahte `website_url` alanı bulunur; botlar bu alanı doldurduğunda talep veritabanına yazılmadan sessizce bertaraf edilir.
-4. **IP Rate Limiting:** Aynı IP adresinden dakikada 5'ten fazla talep gelmesi durumunda `429 Too Many Requests` döndürülür.
-5. **SQL Injection Koruması:** Neon SQL şablon literalleri ile parametrik sorgulama kullanılır (`$1, $2, ...`).
+1. **Çift Taraflı Doğrulama:** İstemcide anlık kullanıcı geri bildirimi için Zod; sunucuda manipülasyonu engellemek için bağımsız Zod parse kontrolü.
+2. **Kalıcı Kayıt Güvencesi:** Başarı ekranı ve takip numarası **yalnızca** veritabanı kaydı onaylandığında gösterilir; sunucu hatasında formdaki girdiler korunur, kullanıcıya hata sebebi bildirilir.
+3. **Sunucu Taraflı PII Maskeleme:** `/admin` ekranı ve `GET /api/leads` yanıtında ad, e-posta, IP ve açıklama alanları sunucu tarafında maskelenir; tarayıcıya ham kişisel veri iletilmez.
+4. **Honeypot Koruması:** Kullanıcıya görünmeyen sahte `website_url` alanı doldurulduğunda istek 400 Bad Request ile anında reddedilir.
+5. **IP Rate Limiting:** Aynı IP adresinden dakikada 20'den fazla istek geldiğinde `429 Too Many Requests` döndürülür.
+6. **Arama Motoru İndeks Engeli:** `/admin` rotası için `robots: { index: false, follow: false }` metadata'sı tanımlanmıştır.
+7. **SQL Injection Koruması:** Neon şablon literalleri ile parametrik sorgulama (`$1, $2, ...`) kullanılır.
 
 ---
 
-## 📋 8. Açık Kaynak / Hazır Şablon Beyanı
+## 👤 8. Geçmiş Projeler ve Kişisel Katkı
 
-- **Hazır Şablon Kullanımı:** Projede hiçbir hazır HTML/CSS template veya UI kiti (Shadcn, Bootstrap vb.) **kullanılmamıştır**.
-- **Kullanılan Temel Açık Kaynak Kütüphaneler:**
-  - `next`: React tabanlı SSR/SSG altyapısı (v16 App Router).
-  - `tailwindcss`: Temel yardımcı sınıflar (v4, sıfır harici animasyon kütüphanesi).
-  - `zod`: Tip güvenli şema doğrulama.
-  - `@neondatabase/serverless`: Serverless PostgreSQL sürücüsü.
-  - `vitest`: Hızlı birim test çalıştırıcısı.
-- **Özgün Katkı:** Tüm UI bileşenleri (`Navbar`, `Hero`, `ProblemStatement`, `ServicePackages`, `PilotScope`, `LeadForm`, `FAQ`, `Footer`, `Admin`), state yönetimi, rate limiter, db adaptörü ve test suiteleri bu teslim için sıfırdan kodlanmıştır.
+Geliştirici portföyü ve teknik geçmişe dair somut referans projeler:
+
+- **Smart Campus Adaptive Lighting System:** ESP32 mikrodenetleyicileri, LDR/PIR sensörleri ve merkezi sunucu iletişimiyle enerji verimliliği sağlayan IoT ve donanım staj projesi. ([github.com/osmnmlh/smart-campus-adaptive-lighting](https://github.com/osmnmlh/smart-campus-adaptive-lighting))
+- **aitrouble:** Go dili ile geliştirilmiş; açık kaynak yapay zeka API entegrasyonlarındaki bağlantı, kota ve yapılandırma hatalarını terminalden otomatik analiz eden CLI teşhis aracı. ([github.com/osmnmlh/aitrouble](https://github.com/osmnmlh/aitrouble))
+- **Room Rent v3.0:** JavaScript ve PostgreSQL tabanlı; kiralama süreçlerini ve rezervasyon takvimini uçtan uca yöneten tam yığın (full-stack) web uygulaması.
+
+**Kişisel Katkı:** Bu projede konsept tanımı, sistem mimarisi, güvenlik ve veri kalıcılığı gereksinimlerinin belirlenmesi, kod incelemeleri (code review) ve doğrulama süreçleri şahsıma aittir. Kod üretiminde AI ajanı eş-programcı olarak kullanılmış olup kararlar ve müdahaleler [AI_LOG.md](./AI_LOG.md) dosyasında belgelenmiştir.
 
 ---
 
-## 🤖 9. AI Kullanımı ve Kararlar (AI_LOG.md)
+## ⚠️ 9. Bilinen Eksikler ve Kısıtlar
 
-Değerlendirme kriterlerinin (20 puan) gereği olarak, AI araçlarıyla yapılan çalışmalar, prompt stratejileri, **reddedilen / insan mühendisliğiyle değiştirilen öneriler** ve doğrulama kanıtları [AI_LOG.md](./AI_LOG.md) dosyasında şeffaf bir şekilde belgelenmiştir.
+- **Rate Limiter Bellek Kapsamı:** Mevcut IP rate limiter tek instance'ın bellek haritasında tutulmaktadır. Vercel üzerinde çoklu sunucusuz instance'lar arasında tam senkronizasyon için Upstash Redis gibi harici bir anahtar-değer deposu gereklidir.
+- **Salt-Okunur Admin:** `/admin` paneli bir oturum yönetim sistemi (login) içermez; değerlendiricinin test kaydını kolayca doğrulaması için tasarlanmış açık, salt-okunur ve kişisel verileri maskeli bir denetim ekranıdır.
+- **E-posta Gönderimi:** Form gönderildiğinde müşteriye gerçek SMTP/API üzerinden onay e-postası iletimi bu aşamada kapsam dışı bırakılmıştır.
 
 ---
 
 ## 🏷️ Teslim Bilgisi
+- **Teslim Commit Kimliği:** Teslim commit kimliği teslim formunda ve teslim git etiketindedir.
 - **Repo:** [github.com/osmnmlh/entoksis-tek-cati-bt](https://github.com/osmnmlh/entoksis-tek-cati-bt)
 - **Lisans:** [MIT](./LICENSE)
 - **Tarih:** Ekim 2026
