@@ -1,6 +1,7 @@
 # Tek Çatı BT – Kurumsal Cihaz, Yazılım ve İletişim Yönetimi Hizmeti
 
-**Canlı Demo:** `<CANLI_URL_BURAYA>`
+**Canlı Demo:** [https://entoksis.vercel.app](https://entoksis.vercel.app)  
+**Canlı Kayıt Doğrulama Paneli (Salt-okunur / PII Maskeli):** [https://entoksis.vercel.app/admin](https://entoksis.vercel.app/admin)
 
 [![CI](https://github.com/osmnmlh/entoksis-tek-cati-bt/actions/workflows/ci.yml/badge.svg)](https://github.com/osmnmlh/entoksis-tek-cati-bt/actions)
 [![Next.js](https://img.shields.io/badge/Next.js-16_App_Router-black?logo=next.js)](https://nextjs.org/)
