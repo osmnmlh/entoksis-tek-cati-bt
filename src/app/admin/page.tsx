@@ -15,7 +15,7 @@ export default function AdminPage() {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch("/api/leads?limit=100");
+      const res = await fetch("/api/leads?limit=50", { cache: "no-store" });
       if (!res.ok) {
         throw new Error(`Sunucu yanıtı: ${res.status}`);
       }
@@ -62,15 +62,14 @@ export default function AdminPage() {
                 ← Landing Page'e Dön
               </Link>
               <span className="text-xs font-semibold px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800">
-                Canlı PostgreSQL Denetimi
+                Canlı Doğrulama Ekranı
               </span>
             </div>
             <h1 className="mt-2 text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-              Kalıcı Talep Kayıtları (Admin / Değerlendirici Paneli)
+              Talep Kayıtları Doğrulama Paneli
             </h1>
             <p className="mt-1 text-xs sm:text-sm text-slate-400">
-              Landing page üzerinden gönderilen test kayıtlarının veritabanında kalıcı olarak saklandığını
-              buradan anlık olarak inceleyebilirsiniz.
+              Salt-okunur doğrulama ekranı; kişisel veriler maskelenmiştir.
             </p>
           </div>
 
