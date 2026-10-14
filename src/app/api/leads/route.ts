@@ -3,15 +3,18 @@ import { leadSchema, SERVICE_PACKAGES } from "@/lib/schema";
 import { insertLead, getLeads } from "@/lib/db";
 import { checkRateLimit } from "@/lib/rateLimit";
 import { sanitizeString } from "@/lib/sanitize";
+import { maskLeadRecord } from "@/lib/mask";
+
+export const dynamic = "force-dynamic";
 
 export async function POST(req: NextRequest) {
   try {
-    // 1. IP extraction and Rate Limiting
+    // 1. IP extraction and Rate Limiting (20 requests per minute)
     const forwarded = req.headers.get("x-forwarded-for");
     const ip = forwarded ? forwarded.split(",")[0].trim() : "127.0.0.1";
     const userAgent = req.headers.get("user-agent") || undefined;
 
-    const rateResult = checkRateLimit(ip, 5, 60 * 1000);
+    const rateResult = checkRateLimit(ip, 20, 60 * 1000);
     if (!rateResult.allowed) {
       return NextResponse.json(
         {
@@ -41,16 +44,14 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // 3. Honeypot check
+    // 3. Honeypot check: If filled, reject with 400 Bad Request (do not write to DB)
     if (body.website_url && body.website_url.trim().length > 0) {
-      // Return 200 to mislead automated spam bots without persisting
       return NextResponse.json(
         {
-          success: true,
-          message: "Talebiniz başarıyla iletildi.",
-          data: { trackingCode: "TCB-SPAM-OK" }
+          success: false,
+          message: "Geçersiz istek tespit edildi."
         },
-        { status: 200 }
+        { status: 400 }
       );
     }
 
@@ -85,7 +86,7 @@ export async function POST(req: NextRequest) {
     const cleanName = sanitizeString(name);
     const cleanDesc = sanitizeString(description);
 
-    // 7. Persistent storage insertion
+    // 7. Persistent storage insertion (throws on error in production)
     const record = await insertLead({
       name: cleanName,
       email: email.toLowerCase().trim(),
@@ -126,14 +127,17 @@ export async function POST(req: NextRequest) {
 export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
-    const limit = Math.min(Number(searchParams.get("limit") || 50), 100);
+    const limit = Math.min(Number(searchParams.get("limit") || 50), 50);
 
     const leads = await getLeads(limit);
 
+    // Server-side PII masking for all returned records
+    const maskedLeads = leads.map(maskLeadRecord);
+
     return NextResponse.json({
       success: true,
-      count: leads.length,
-      data: leads
+      count: maskedLeads.length,
+      data: maskedLeads
     });
   } catch (error) {
     console.error("[GET /api/leads] Hata:", error);
